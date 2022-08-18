@@ -13,14 +13,17 @@ class PetHistoriesController < ApplicationController
   # GET /pet_histories/new
   def new
     @pet_history = PetHistory.new
+    @pets = Pet.all
   end
 
   # GET /pet_histories/1/edit
   def edit
+    @pets = Pet.all
   end
 
   # POST /pet_histories or /pet_histories.json
   def create
+    @pets = Pet.all
     @pet_history = PetHistory.new(pet_history_params)
 
     respond_to do |format|
@@ -37,6 +40,7 @@ class PetHistoriesController < ApplicationController
   # PATCH/PUT /pet_histories/1 or /pet_histories/1.json
   def update
     respond_to do |format|
+      @pets = Pet.all
       if @pet_history.update(pet_history_params)
         format.html { redirect_to pet_history_url(@pet_history), notice: "Pet history was successfully updated." }
         format.json { render :show, status: :ok, location: @pet_history }
