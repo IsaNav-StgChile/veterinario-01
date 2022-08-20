@@ -26,9 +26,9 @@
     <%= form.text_area :description %>
   </div>
 
-  <div class="field">
-    <%= form.label :pet_id %>
-    <%= form.text_field :pet_id %>
+    <div class="field">
+    <%= form.label :pet %>
+    <%= form.select :pet_id, options_for_select(@pets) %>
   </div>
 
   <div class="actions">
